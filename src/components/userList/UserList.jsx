@@ -20,9 +20,12 @@ const UserList = ({ users, isLoading, onInviteClick, invitedUsers }) => {
       <ul>
         {users
           .filter((user) => {
-            const fullName = user.first_name.toLowerCase() + ' ' + user.last_name.toLowerCase()
+            const fullName =
+              user.first_name.toLowerCase() +
+              " " +
+              user.last_name.toLowerCase();
             return (
-            fullName.includes(value.toLowerCase()) ||
+              fullName.includes(value.toLowerCase()) ||
               user.email.toLowerCase().includes(value.toLowerCase())
             );
           })
@@ -39,6 +42,21 @@ const UserList = ({ users, isLoading, onInviteClick, invitedUsers }) => {
             )
           )}
       </ul>
+      {invitedUsers.length > 0 && !value.trim(' ') ? (
+        <a
+          className={styles.mailto}
+          href={
+            "mailto:" +
+            invitedUsers.map((user) => {
+              return user.email;
+            })
+          }
+        >
+          Send invite messages
+        </a>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
