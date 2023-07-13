@@ -12,7 +12,7 @@ const User = ({ user, onInviteClick, invitedUsers }) => {
   };
 
   return (
-    <li className={styles.listItem}>
+    <li onDoubleClick={() => onBtnClick(user)} className={styles.listItem}>
       <img src={avatar} alt={last_name} />
       <div>
         <b>

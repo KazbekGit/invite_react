@@ -43,6 +43,7 @@ function App() {
         onInviteClick={onInviteClick}
         invitedUsers={invitedUsers}
       />
+      {invitedUsers.length > 0 ? <a className={styles.mailto} href={'mailto:' + invitedUsers.map((user) => {return user.email})}>Send invite messages</a> : <></>}
     </div>
   );
 }
